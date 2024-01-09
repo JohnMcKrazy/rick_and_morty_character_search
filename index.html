@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title></title>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script type="module" charset="utf-8" src="./index.js"></script>
+        <link rel="icon" type="image/svg" href="" />
+        <link rel="apple-touch-icon" href="" />
+        <link rel="canonical" href="" />
+        <link rel="stylesheet" href="./normalize.css" />
+        <!-- !GOOGLE FONST POPPINS  -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400&display=swap" rel="stylesheet" />
+        <!-- !GOOGLE FONST POPPINS END  -->
+
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body class="dark_theme">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="wrapper">
+            <!--!PAGE START-->
+            <header class="nav_container">
+                <div class="title_container">
+                    <h1 class="title">Rick & Morty Character Search</h1>
+                </div>
+                <nav class="search_nav">
+                    <div class="input_container">
+                        <input type="search" class="search_input" aria-label="search item input" placeholder="Search a Character" />
+
+                        <button type="button" class="search_btn btn">
+                            <span class="label_btn">Search</span>
+                        </button>
+                    </div>
+                </nav>
+                <div class="error_msg_container">
+                    <span class="error_msg">That character not exist</span>
+                </div>
+            </header>
+
+            <main class="item_container"></main>
+            <div class="target">
+                <div class="load"></div>
+                <h1 class="loading_text">Loading</h1>
+            </div>
+            <!--!PAGE OVER-->
+        </div>
+    </body>
+    <template class="card_template">
+        <div class="card">
+            <img src="" alt="" class="img_item" />
+            <div class="card_info_container">
+                <h3 class="card_id">ID:<span class="id_item"></span></h3>
+                <h3 class="card_title accent">Name:</h3>
+                <span class="answer name_item"></span>
+                <h3 class="card_subtitle accent">Status:</h3>
+                <div class="status_container">
+                    <span class="answer status_item"></span>
+                    <div class="status"></div>
+                </div>
+                <h3 class="card_subtitle accent">Origin:</h3>
+                <span class="answer origin_item"></span>
+            </div>
+        </div>
+    </template>
+</html>
