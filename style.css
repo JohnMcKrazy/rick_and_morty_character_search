@@ -7,44 +7,8 @@
 }
 
 HTML {
-    /*¿GENERAL COLORS START */
-    --lightGray: rgb(180, 180, 180);
-    --midGray: rgb(166, 166, 166);
-    --darkGray: rgb(77, 77, 77);
-    --black: rgb(10, 10%, 10%);
-    --white: rgb(240, 240, 240);
-    --blackOff: rgb(38, 38, 38);
-    --whiteOff: rgb(217, 217, 217);
-    --midLight: rgb(128, 128, 128);
-    /*¿FONTS START  */
-    /*¿ FONT SIZES--START */
-    --fontSizeXL: 5em;
-    --fontSizeL: 2.8em;
-    --fontSizeG: 1.8em;
-    --fontSizeN: 1.5em;
-    --fontSizeS: 1.2em;
-    /*¿ FONT WEIGHT--START */
-    /*¿TRANSITIONS--START */
-    --transitionUF: all 250ms ease;
-    --transitionF: all 500ms ease;
-    --transitionM: all 750ms ease;
-    --transitionS: all 1000ms ease;
-    /*¿PADDING */
-    --paddingXS: 0.25rem;
-    --paddingS: 0.5rem;
-    --paddingM: 1rem;
-    --paddingL: 1.5rem;
-    --paddingX: 2rem;
-    --paddingXX: 2.5rem;
-    /*¿GENERAL START */
-    --ih: 3rem;
-    --ib: .5rem;
-    width: 100%;
-    height: 100vh;
     --fontSize: 10px;
     font-family: 'Poppins', sans-serif;
-
-
     font-size: var(--fontSize);
     line-break: loose;
     letter-spacing: 0.15rem;
@@ -53,31 +17,13 @@ HTML {
 }
 
 /*!THEMES START */
-.light_theme {
-    /*¿COLORS */
-    --textColor: rgb(25, 25, 25);
-    --textContrastColor: rgb(225, 225, 255);
-    /*¿ BACKGROUNDS */
-    --bgColor: rgb(225, 225, 255);
-    /*¿GENERALS */
-    --fc: darkslateblue;
-}
 
-.dark_theme {
-    /*¿COLORS */
-    --textColor: rgb(225, 225, 255);
-    --textContrastColor: rgb(25, 25, 25);
-    /*¿BACKGROUNDS */
-    --bgColor: rgb(25, 25, 25);
-    /*¿GENERALS */
-    --fc: skyblue;
-}
 
 /*! GENERAL PAGE */
 BODY {
     position: relative;
-    color: var(--textColor);
-    background: var(--bgColor);
+    color: rgb(225, 225, 255);
+    background: rgb(25, 25, 25);
     margin: 0;
     padding: 0;
     width: 100%;
@@ -92,7 +38,7 @@ INPUT[type="text"] {
 }
 
 :focus {
-    outline: 2px solid var(--fc);
+    outline: 2px solid skyblue;
     outline-offset: 0.1rem;
 }
 
@@ -134,7 +80,7 @@ SVG {
 }
 
 .answer {
-    font-size: var(--fontSizeS);
+    font-size: 1.2em;
     font-weight: 200;
 }
 
@@ -143,8 +89,8 @@ SVG {
     top: 0;
     left: 0;
     right: 0;
-    background: var(--bgColor);
-    padding: 2rem 0;
+    background: rgb(25, 25, 25);
+    padding: 1rem 0;
 
 
 }
@@ -168,11 +114,11 @@ SVG {
     align-items: center;
     height: 4rem;
     width: 4rem;
-    fill: var(--midGray);
-    transition: all 300ms ease-in-out;
+    fill: rgb(166, 166, 166);
+    transition: fill 500ms ease-in-out;
 
     &:hover {
-        fill: var(--fc);
+        fill: skyblue;
     }
 }
 
@@ -192,8 +138,9 @@ SVG {
 .search_input,
 .search_btn {
     display: block;
-    height: var(--ih);
-    border-radius: var(--ib);
+    height: 3rem;
+    border-radius: .5rem;
+    ;
 }
 
 .search_input {
@@ -202,13 +149,13 @@ SVG {
 
 .search_btn {
     padding: 0 2rem;
-    background: var(--fc);
+    background: skyblue;
 }
 
 .title {
     color: white;
     text-align: center;
-    font-size: 6rem;
+    font-size: 5rem;
 }
 
 .error_msg_container {

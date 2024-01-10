@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (respStatus === 200) {
                 let cloneData = { ...data };
                 let newData = JSON.parse(JSON.stringify(cloneData));
-                //*console.log(newData);
+                console.log(newData);
                 const dataResults = newData.results;
                 dataResults.forEach((item) => {
                     createCard(item);
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, 500);
             } else {
                 errorMsgContainer.style.display = "block";
-                fetchRick(apiURL);
+                fetchRick(apiURL + "?name=unknown rick");
             }
         } catch {
             //*console.log(error);
@@ -136,6 +136,8 @@ document.addEventListener("DOMContentLoaded", () => {
     refreshBtn.addEventListener("click", () => {
         deleteChildElements(itemsContainer);
         deleteArrElements(fragment);
+        errorMsgContainer.style.display = "none ";
+        requestTarget.style.display = "flex";
         inputSearch.value = "";
         fetchRick(apiURL);
     });
