@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const $d = document;
     const selector = (tag) => $d.querySelector(`${tag}`);
     const selectorAll = (tag) => $d.querySelectorAll(`${tag}`);
-
-    const sanitizeInput = (inputValue) => {
+    const body = selector("BODY");
+    const sanitizeInput = (inputSearch) => {
         const div = document.createElement("div");
-        div.textContent = inputValue;
+        div.textContent = inputSearch;
         return div.innerHTML;
     };
     const deleteChildElements = (parentElement) => {
@@ -88,11 +88,12 @@ document.addEventListener("DOMContentLoaded", () => {
             //*console.log(error);
         }
     };
+    const inputSearch = selector(".search_input");
     fetchRick(apiURL);
     selector(".search_btn").addEventListener("click", () => {
         errorMsgContainer.style.display = "none ";
         requestTarget.style.display = "flex";
-        const searchValue = sanitizeInput(selector(".search_input").value);
+        const searchValue = sanitizeInput(inputSearch.value);
         deleteChildElements(itemsContainer);
         deleteArrElements(fragment);
         if (searchValue !== "") {
@@ -124,4 +125,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let observer = new IntersectionObserver(callback, options);
     observer.observe(requestTarget);
+    const refreshBtn = selector(".refresh_btn");
+    const upBtn = selector(".up_btn");
+
+    const toTheTop = () => {
+        const currentPosition = body.getBoundingClientRect().top;
+        window.scrollTo(currentPosition, 0);
+    };
+    upBtn.addEventListener("click", toTheTop);
+    refreshBtn.addEventListener("click", () => {
+        deleteChildElements(itemsContainer);
+        deleteArrElements(fragment);
+        inputSearch.value = "";
+        fetchRick(apiURL);
+    });
 });
