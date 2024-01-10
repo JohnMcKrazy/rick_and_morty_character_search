@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, 500);
             } else {
                 errorMsgContainer.style.display = "block";
-                fetchRick(apiURL + "?name=unknown rick");
+                fetchRick(apiURL + "?name=unknown rick          ");
             }
         } catch {
             //*console.log(error);
@@ -96,11 +96,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const searchValue = sanitizeInput(inputSearch.value);
         deleteChildElements(itemsContainer);
         deleteArrElements(fragment);
-        if (searchValue !== "") {
-            fetchRick(apiURL + "?name=" + searchValue);
-        } else {
-            fetchRick(apiURL);
-        }
+        setTimeout(() => {
+            if (searchValue !== "") {
+                fetchRick(apiURL + "?name=" + searchValue);
+            } else {
+                fetchRick(apiURL);
+            }
+        }, 500);
     });
 
     const callback = ([entry], observer) => {
