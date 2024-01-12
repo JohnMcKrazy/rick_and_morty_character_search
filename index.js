@@ -33,12 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const createCard = (data) => {
         let cloneTemplate = cardTemplate.cloneNode(true);
-        let img = cloneTemplate.querySelector(".img_item");
-        let name = cloneTemplate.querySelector(".name_item");
-        let status = cloneTemplate.querySelector(".status_item");
-        let iconStatus = cloneTemplate.querySelector(".status");
-        let origin = cloneTemplate.querySelector(".origin_item");
-        let id = cloneTemplate.querySelector(".id_item");
+        let img = cloneTemplate.querySelector(".img_answer_card");
+        let name = cloneTemplate.querySelector(".name_answer_card");
+        let status = cloneTemplate.querySelector(".status_answer_card");
+        let iconStatus = cloneTemplate.querySelector(".status_icon_answer_card");
+        let origin = cloneTemplate.querySelector(".origin_answer_card");
+        let infoBtn = cloneTemplate.querySelector(".info_btn");
+        let id = cloneTemplate.querySelector(".id_answer_card");
 
         if (data.status === "Alive") {
             iconStatus.style.background = "lightgreen";
@@ -51,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         name.textContent = data.name;
         status.textContent = data.status;
         origin.textContent = data.origin.name;
+        infoBtn.setAttribute("data-id", data.id);
         id.textContent = data.id;
         fragment.appendChild(cloneTemplate);
     };
@@ -78,6 +80,45 @@ document.addEventListener("DOMContentLoaded", () => {
                 setTimeout(() => {
                     //*console.log(nextPage);
                     loading = false;
+                    selectorAll(".info_btn").forEach((btn) => {
+                        btn.addEventListener("click", async () => {
+                            const modal = selector(".modal");
+                            try {
+                                const resp = await fetch("https://rickandmortyapi.com/api/character/" + btn.getAttribute("data-id"));
+                                const data = await resp.json();
+                                const respStatus = resp.status;
+                                if (respStatus === 200) {
+                                    console.log(data);
+                                    modal.style.display = "block";
+                                    const img = modal.querySelector("IMG");
+                                    const status = modal.querySelector(".status_answer_modal");
+
+                                    const id = modal.querySelector(".id_answer_modal");
+                                    const name = modal.querySelector(".name_answer_modal");
+                                    const gender = modal.querySelector(".gender_answer_modal");
+                                    const species = modal.querySelector(".species_answer_modal");
+                                    const origin = modal.querySelector(".origin_answer_modal");
+                                    const location = modal.querySelector(".location_answer_modal");
+                                    img.src = data.image;
+
+                                    status.textContent = data.status;
+                                    id.textContent = data.id;
+                                    name.textContent = data.name;
+                                    gender.textContent = data.gender;
+                                    species.textContent = data.species;
+                                    origin.textContent = data.origin.name;
+                                    location.textContent = data.location.name;
+                                    setTimeout(() => {
+                                        modal.style.opacity = 1;
+                                    }, 200);
+                                } else {
+                                    console.log("esto no deberia de aparecer");
+                                }
+                            } catch {
+                                //*console.log(error);
+                            }
+                        });
+                    });
                     //*console.log(`Loading... ${loading}`);
                 }, 500);
             } else {
@@ -90,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     const inputSearch = selector(".search_input");
     fetchRick(apiURL);
-    selector(".search_btn").addEventListener("click", () => {
+    const searchFunction = () => {
         errorMsgContainer.style.display = "none ";
         requestTarget.style.display = "flex";
         const searchValue = sanitizeInput(inputSearch.value);
@@ -103,8 +144,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 fetchRick(apiURL);
             }
         }, 500);
+    };
+    selector(".search_btn").addEventListener("click", searchFunction);
+    inputSearch.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            searchFunction();
+        }
     });
-
     const callback = ([entry], observer) => {
         if (!loading && entry.isIntersecting) {
             //*console.log(`Loading... ${loading}`);
@@ -134,6 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentPosition = body.getBoundingClientRect().top;
         window.scrollTo(currentPosition, 0);
     };
+
     upBtn.addEventListener("click", toTheTop);
     refreshBtn.addEventListener("click", () => {
         deleteChildElements(itemsContainer);
@@ -142,5 +189,13 @@ document.addEventListener("DOMContentLoaded", () => {
         requestTarget.style.display = "flex";
         inputSearch.value = "";
         fetchRick(apiURL);
+    });
+
+    selector(".close_btn").addEventListener("click", () => {
+        const modal = selector(".modal");
+        modal.style.opacity = 0;
+        setTimeout(() => {
+            modal.style.display = "none";
+        }, 1000);
     });
 });

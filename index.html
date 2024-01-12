@@ -24,10 +24,53 @@
 
         <link rel="stylesheet" href="./style.css" />
     </head>
-    <body class="dark_theme">
+    <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <div class="modal">
+            <div class="modal_card">
+                <button class="close_btn extra_btn" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"></path>
+                    </svg>
+                </button>
+                <div class="modal_content">
+                    <img src="" alt="" />
+                    <div class="modal_info_container">
+                        <div class="data_container">
+                            <h2>ID:</h2>
+                            <span class="answer id_answer_modal"></span>
+                        </div>
+
+                        <div class="data_container">
+                            <h2 class="modal_subtitle accent">Status:</h2>
+                            <span class="answer status_answer_modal"></span>
+                        </div>
+                        <div class="data_container">
+                            <h2 class="modal_title accent">Name:</h2>
+                            <span class="answer name_answer_modal"></span>
+                        </div>
+                        <div class="data_container">
+                            <h2 class="modal_title accent">Genger:</h2>
+                            <span class="answer gender_answer_modal"></span>
+                        </div>
+                        <div class="data_container">
+                            <h2 class="modal_title accent">Species:</h2>
+                            <span class="answer species_answer_modal"></span>
+                        </div>
+                        <div class="data_container">
+                            <h2 class="card_subtitle accent">Origin:</h2>
+                            <span class="answer origin_answer_modal"></span>
+                        </div>
+                        <div class="data_container">
+                            <h2 class="card_subtitle accent">Location:</h2>
+                            <span class="answer location_answer_modal"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="wrapper">
             <!--!PAGE START-->
             <header class="nav_container">
@@ -72,18 +115,22 @@
     </body>
     <template class="card_template">
         <div class="card">
-            <img src="" alt="" class="img_item" />
+            <img src="" alt="" class="img_answer_card" />
             <div class="card_info_container">
-                <h3 class="card_id">ID:<span class="id_item"></span></h3>
-                <h3 class="card_title accent">Name:</h3>
-                <span class="answer name_item"></span>
+                <div class="data_container">
+                    <h3 class="card_id">ID:</h3>
+                    <span class="id_answer_card"></span>
+                </div>
                 <h3 class="card_subtitle accent">Status:</h3>
                 <div class="status_container">
-                    <span class="answer status_item"></span>
-                    <div class="status"></div>
+                    <div class="status status_icon_answer_card"></div>
+                    <span class="answer status_answer_card"></span>
                 </div>
+                <h3 class="card_title accent">Name:</h3>
+                <span class="answer name_answer_card"></span>
                 <h3 class="card_subtitle accent">Origin:</h3>
-                <span class="answer origin_item"></span>
+                <span class="answer origin_answer_card line_clamp"></span>
+                <button type="button" class="btn info_btn" data-id=""><span class="label_btn">Info</span></button>
             </div>
         </div>
     </template>
