@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let iconStatus = cloneTemplate.querySelector(".status_icon_answer_card");
         let origin = cloneTemplate.querySelector(".origin_answer_card");
         let infoBtn = cloneTemplate.querySelector(".info_btn");
-        let id = cloneTemplate.querySelector(".id_answer_card");
 
         if (data.status === "Alive") {
             iconStatus.style.background = "lightgreen";
@@ -53,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
         status.textContent = data.status;
         origin.textContent = data.origin.name;
         infoBtn.setAttribute("data-id", data.id);
-        id.textContent = data.id;
         fragment.appendChild(cloneTemplate);
     };
     const errorMsgContainer = selector(".error_msg_container");
@@ -92,17 +90,21 @@ document.addEventListener("DOMContentLoaded", () => {
                                     modal.style.display = "block";
                                     const img = modal.querySelector("IMG");
                                     const status = modal.querySelector(".status_answer_modal");
-
-                                    const id = modal.querySelector(".id_answer_modal");
+                                    const iconStatus = modal.querySelector(".status_icon_answer_modal");
                                     const name = modal.querySelector(".name_answer_modal");
                                     const gender = modal.querySelector(".gender_answer_modal");
                                     const species = modal.querySelector(".species_answer_modal");
                                     const origin = modal.querySelector(".origin_answer_modal");
                                     const location = modal.querySelector(".location_answer_modal");
                                     img.src = data.image;
-
+                                    if (data.status === "Alive") {
+                                        iconStatus.style.background = "lightgreen";
+                                    } else if (data.status === "Dead") {
+                                        iconStatus.style.background = "red";
+                                    } else {
+                                        iconStatus.style.background = "orange";
+                                    }
                                     status.textContent = data.status;
-                                    id.textContent = data.id;
                                     name.textContent = data.name;
                                     gender.textContent = data.gender;
                                     species.textContent = data.species;
