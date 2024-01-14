@@ -139,13 +139,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const searchValue = sanitizeInput(inputSearch.value);
         deleteChildElements(itemsContainer);
         deleteArrElements(fragment);
-        setTimeout(() => {
-            if (searchValue !== "") {
-                fetchRick(apiURL + "?name=" + searchValue);
-            } else {
-                fetchRick(apiURL);
-            }
-        }, 500);
+        if (searchValue !== "") {
+            fetchRick(apiURL + "?name=" + searchValue);
+        } else {
+            fetchRick(apiURL);
+        }
     };
     selector(".search_btn").addEventListener("click", searchFunction);
     inputSearch.addEventListener("keypress", (e) => {
