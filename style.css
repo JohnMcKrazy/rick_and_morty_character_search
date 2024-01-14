@@ -18,6 +18,7 @@
 
 HTML {
     --textColor: rgb(225, 225, 255);
+    --fc: rgb(135, 206, 235);
     --fontSize: 10px;
     font-family: 'Poppins', sans-serif;
     font-size: var(--fontSize);
@@ -39,7 +40,8 @@ BODY {
 }
 
 :focus {
-    outline: 2px solid skyblue;
+    outline: 2px solid var(--fc);
+    ;
     outline-offset: 0.1rem;
 }
 
@@ -122,18 +124,33 @@ SVG {
     fill: rgb(166, 166, 166);
     transition: fill 500ms ease-in-out;
 
-    &:hover {
-        fill: skyblue;
+    &:hover,
+    &:active,
+    &:focus {
+        fill: rgb(10, 10, 10);
     }
+}
+
+.action_btn {
+    position: fixed;
+    bottom: 2rem;
+    background: rgb(245, 245, 245, .8);
+    border-radius: 50%;
+
 }
 
 .refresh_btn {
     padding: .5rem;
+    left: 2rem;
+}
+
+.up_btn {
+    right: 2rem;
 }
 
 .search_btn {
     padding: 0 2rem;
-    background: skyblue;
+    background: var(--fc);
 }
 
 .search_input {
@@ -148,17 +165,9 @@ SVG {
     ;
 }
 
-.extra_nav,
 .search_nav {
     width: 100%;
     padding: 0 4rem;
-}
-
-.extra_nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .card {
@@ -215,7 +224,7 @@ SVG {
             justify-content: center;
             align-items: center;
             padding: 1rem 2rem;
-            background: skyblue;
+            background: var(--fc);
             color: rgb(10, 10, 10);
             font-size: 1.2rem;
             font-weight: 600;
@@ -260,7 +269,7 @@ SVG {
 
         h2 {
             font-weight: 400;
-            color: skyblue;
+            color: var(--fc);
             font-size: 1em;
             margin-bottom: .5rem;
         }
@@ -283,14 +292,8 @@ SVG {
 }
 
 .nav_container {
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
     background: rgb(25, 25, 25);
     padding: 1rem 0;
-    z-index: 99;
-
 }
 
 .status_container {
@@ -336,7 +339,7 @@ SVG {
 
 .item_container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 400px);
+    grid-template-columns: repeat(auto-fill, 340px);
     column-gap: 1.5rem;
     row-gap: 2rem;
     justify-content: center;
