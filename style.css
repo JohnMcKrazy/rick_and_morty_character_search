@@ -127,7 +127,7 @@ SVG {
     &:hover,
     &:active,
     &:focus {
-        fill: rgb(10, 10, 10);
+        fill: rgb(185, 29, 29);
     }
 }
 
