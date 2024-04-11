@@ -22,6 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     };
+    const properCase = (string) => {
+        return `${string[0].toUpperCase()}${string.slice(1).toLowerCase()}`;
+    };
     const itemsContainer = selector(".item_container");
     const requestTarget = selector(".target");
     const cardTemplate = selector(".card_template").content;
@@ -48,9 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
             iconStatus.style.background = "orange";
         }
         img.src = data.image;
-        name.textContent = data.name;
-        status.textContent = data.status;
-        origin.textContent = data.origin.name;
+        name.textContent = properCase(data.name);
+        status.textContent = properCase(data.status);
+        origin.textContent = properCase(data.origin.name);
         infoBtn.setAttribute("data-id", data.id);
         fragment.appendChild(cloneTemplate);
     };
