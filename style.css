@@ -120,6 +120,22 @@ SVG {
   color: var(--fc);
 }
 
+.btn {
+  border: solid 2px var(--fc);
+}
+.btn .label_btn {
+  font-size: var(--fs_n);
+  color: var(--textColor);
+  font-weight: 600;
+}
+.btn:hover, .btn:active, .btn:focus {
+  background: var(--fc);
+  border-color: transparent;
+}
+.btn:hover .label_btn, .btn:active .label_btn, .btn:focus .label_btn {
+  color: var(--black);
+}
+
 .extra_btn {
   display: flex;
   justify-content: center;
@@ -128,7 +144,6 @@ SVG {
   width: 4rem;
   fill: rgb(166, 166, 166);
   transition: fill 250ms ease-in-out;
-  border: none;
 }
 .extra_btn:hover, .extra_btn:active, .extra_btn:focus {
   fill: var(--fc);
@@ -136,7 +151,7 @@ SVG {
 
 .action_btn {
   position: fixed;
-  bottom: 2rem;
+  bottom: 6rem;
   background: var(--blackMute);
   border-radius: 50%;
 }
@@ -153,22 +168,6 @@ SVG {
 
 .up_btn {
   right: 2rem;
-}
-
-.btn {
-  border: solid 2px var(--fc);
-}
-.btn .label_btn {
-  font-size: var(--fs_n);
-  color: var(--textColor);
-  font-weight: 600;
-}
-.btn:hover, .btn:active, .btn:focus {
-  background: var(--fc);
-  border-color: transparent;
-}
-.btn:hover .label_btn, .btn:active .label_btn, .btn:focus .label_btn {
-  color: var(--black);
 }
 
 .nav_container {
@@ -213,6 +212,7 @@ SVG {
   min-width: 5rem;
   width: 100%;
   max-width: 40rem;
+  accent-color: var(--fc);
 }
 .nav_container .search_nav .search_input,
 .nav_container .search_nav .search_btn {
@@ -414,7 +414,7 @@ SVG {
   font-size: 1.2rem;
   width: 100%;
   z-index: 5;
-  display: none;
+  /* display: none; */
 }
 .my_banner .banner_content {
   margin: 0 auto;
