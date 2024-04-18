@@ -24,15 +24,16 @@
   --fc: rgb(135, 206, 235);
   --fontSize: 12px;
   --fs_title: 4rem;
+  --fs_subtitle: 2rem;
   --fs_s: 1rem;
   --fs_n: 1.2rem;
   --fs_l: 1.4rem;
-  --fs_xl: 2rem;
+  --fs_xl: 1.6rem;
   --logoBlue: rgb(66, 196, 240);
   --logoPurple: rgb(46, 10, 117);
   --logoGrey: rgb(166, 166, 166);
   --red: crimson;
-  --cardDimentions: 20rem;
+  --cardDimentions: 18rem;
 }
 
 :focus {
@@ -188,7 +189,7 @@ SVG {
   font-weight: 600;
 }
 .nav_container .title_container .subtitle {
-  font-size: var(--fs_xl);
+  font-size: var(--fs_subtitle);
   font-weight: 600;
 }
 .nav_container .disclaimer {
@@ -290,11 +291,15 @@ SVG {
   width: 100%;
   height: 100%;
 }
+.item_container .card .card_info_container .card_info .name_answer_card {
+  font-size: var(--fs_xl);
+  border-bottom: var(--fc) solid 2px;
+}
 .item_container .card .card_info_container .card_info .info_title,
 .item_container .card .card_info_container .card_info .answer {
   font-weight: 400;
 }
-.item_container .card .card_info_container .card_info .info_title:not(.info_title:first-of-type) {
+.item_container .card .card_info_container .card_info .info_title {
   margin-top: 0.5rem;
 }
 .item_container .card .card_info_container .card_info .answer {
