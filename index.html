@@ -28,13 +28,17 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
         <div class="modal">
             <div class="modal_card">
-                <button class="close_btn extra_btn" type="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"></path>
-                    </svg>
-                </button>
+                <div class="close_container">
+                    <button class="close_btn extra_btn" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"></path>
+                        </svg>
+                    </button>
+                </div>
+
                 <div class="modal_content">
                     <img src="" alt="" />
                     <div class="modal_info_container">
@@ -47,84 +51,109 @@
                         </div>
                         <div class="data_container">
                             <h2 class="modal_title accent">Name:</h2>
-                            <span class="answer name_answer_modal"></span>
+                            <p class="answer name_answer_modal"></p>
                         </div>
                         <div class="data_container">
                             <h2 class="modal_title accent">Genger:</h2>
-                            <span class="answer gender_answer_modal"></span>
+                            <p class="answer gender_answer_modal"></p>
                         </div>
                         <div class="data_container">
                             <h2 class="modal_title accent">Species:</h2>
-                            <span class="answer species_answer_modal"></span>
+                            <p class="answer species_answer_modal"></p>
                         </div>
                         <div class="data_container">
                             <h2 class="card_subtitle accent">Origin:</h2>
-                            <span class="answer origin_answer_modal"></span>
+                            <p class="answer origin_answer_modal"></p>
                         </div>
                         <div class="data_container">
                             <h2 class="card_subtitle accent">Location:</h2>
-                            <span class="answer location_answer_modal"></span>
+                            <p class="answer location_answer_modal"></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="wrapper">
-            <!--!PAGE START-->
-            <header class="nav_container">
-                <div class="title_container">
-                    <h1 class="title">Rick & Morty Character Search</h1>
-                </div>
-                <span class="disclaimer">
-                    Rick and Morty is created by Justin Roiland and Dan Harmon for Adult Swim. The data and images are used without claim of ownership and belong to their respective owners.<br />The used API is created by Axel Fuhrmann, is open source and uses a BSD license.</span
-                >
-                <nav class="search_nav">
-                    <div class="input_container">
-                        <input type="search" class="search_input" aria-label="search item input" placeholder="Search a Character" />
-
-                        <button type="button" class="search_btn btn">
-                            <span class="label_btn">Search</span>
-                        </button>
-                    </div>
-                </nav>
-                <div class="error_msg_container">
-                    <span class="error_msg">That character not exist</span>
-                </div>
-            </header>
-
-            <main class="item_container"></main>
-            <button type="button" class="btn extra_btn action_btn refresh_btn">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                        d="M18.5374 19.5674C16.7844 21.0831 14.4993 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 14.1361 21.3302 16.1158 20.1892 17.7406L17 12H20C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C14.1502 20 16.1022 19.1517 17.5398 17.7716L18.5374 19.5674Z"
-                    ></path>
-                </svg>
-            </button>
-            <button type="button" class="btn extra_btn action_btn up_btn">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 4.83582L5.79291 11.0429L7.20712 12.4571L12 7.66424L16.7929 12.4571L18.2071 11.0429L12 4.83582ZM12 10.4857L5.79291 16.6928L7.20712 18.107L12 13.3141L16.7929 18.107L18.2071 16.6928L12 10.4857Z"></path>
-                </svg>
-            </button>
-            <div class="target">
-                <div class="load"></div>
-                <h1 class="loading_text">Loading</h1>
+        <!--!PAGE START-->
+        <header class="nav_container">
+            <div class="title_container">
+                <h1 class="title">Rick & Morty</h1>
+                <h2>Character Search</h2>
             </div>
-            <!--!PAGE OVER-->
+            <span class="disclaimer"> Rick and Morty is created by Justin Roiland and Dan Harmon for Adult Swim. The data and images are used without claim of ownership and belong to their respective owners.<br />The used API is created by Axel Fuhrmann, is open source and uses a BSD license.</span>
+            <nav class="search_nav">
+                <input type="search" class="search_input" aria-label="search item input" placeholder="Search a Character" />
+
+                <button type="button" class="search_btn btn">
+                    <span class="label_btn">Search</span>
+                </button>
+            </nav>
+            <span class="error_msg">That character not exist</span>
+        </header>
+
+        <main class="item_container"></main>
+        <button type="button" class="btn extra_btn action_btn refresh_btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M18.5374 19.5674C16.7844 21.0831 14.4993 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 14.1361 21.3302 16.1158 20.1892 17.7406L17 12H20C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C14.1502 20 16.1022 19.1517 17.5398 17.7716L18.5374 19.5674Z"
+                ></path>
+            </svg>
+        </button>
+        <button type="button" class="btn extra_btn action_btn up_btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 4.83582L5.79291 11.0429L7.20712 12.4571L12 7.66424L16.7929 12.4571L18.2071 11.0429L12 4.83582ZM12 10.4857L5.79291 16.6928L7.20712 18.107L12 13.3141L16.7929 18.107L18.2071 16.6928L12 10.4857Z"></path>
+            </svg>
+        </button>
+        <div class="target">
+            <div class="load"></div>
+            <h1 class="loading_text">Loading</h1>
         </div>
+        <div class="my_banner">
+            <div class="banner_content">
+                <p>Te invito a ver más de mi trabajo en mi <a href="https://johnmckrazy.github.io/JohnK_Portafolio/" class="link_btn">página personal</a></p>
+                <a href="https://johnmckrazy.github.io/JohnK_Portafolio/" class="icon_container logo_btn">
+                    <svg class="johnK_icon_svg icon_svg" data-name="johnK_icon_svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 36.85 24.58">
+                        <title>John.K</title>
+                        <g id="johnK_icon">
+                            <g id="dots">
+                                <path class="cls-1" d="M15.52,18.56a1.34,1.34,0,0,1,.26-.91,1.25,1.25,0,0,1,.92-.27,1.3,1.3,0,0,1,.95.27,1.34,1.34,0,0,1,.26.91,1.26,1.26,0,0,1-.26.9,1.3,1.3,0,0,1-.95.26,1.25,1.25,0,0,1-.92-.26A1.26,1.26,0,0,1,15.52,18.56Z"></path>
+                                <path class="cls-1" d="M15.52,5.94A1.32,1.32,0,0,1,15.78,5a1.25,1.25,0,0,1,.92-.27,1.3,1.3,0,0,1,.95.27,1.32,1.32,0,0,1,.26.91,1.26,1.26,0,0,1-.26.9,1.35,1.35,0,0,1-.95.26,1.3,1.3,0,0,1-.92-.26A1.26,1.26,0,0,1,15.52,5.94Z"></path>
+                            </g>
+                            <g id="letters">
+                                <path
+                                    class="cls-2"
+                                    d="M4.15,20.37l.42-1.67c.41.12.84.22,1.27.32a9.82,9.82,0,0,0,1.27.2c.41,0,.78.05,1.1.05a5.12,5.12,0,0,0,2-.35,2.28,2.28,0,0,0,1.2-1.17,5.09,5.09,0,0,0,.4-2.17V5.49H5.19V3.62h8.73V16a6.68,6.68,0,0,1-.53,2.83,3.47,3.47,0,0,1-1.68,1.72,6.68,6.68,0,0,1-3,.57A13.4,13.4,0,0,1,7.25,21c-.52-.06-1-.14-1.58-.25A13,13,0,0,1,4.15,20.37Z"
+                                ></path>
+                                <path
+                                    class="cls-2"
+                                    d="M32.5,18.9h-.17a2.1,2.1,0,0,1-.74-.13,3.63,3.63,0,0,1-.81-.38,8.38,8.38,0,0,1-1-.74c-.39-.32-.85-.73-1.38-1.24l-3.48-3.32c.55-.4,1.1-.82,1.68-1.29a22.09,22.09,0,0,0,2.16-2.08,22.3,22.3,0,0,0,2-2.5A15.28,15.28,0,0,0,32.2,4.33l-1.65-.84a15.52,15.52,0,0,1-1.24,2.32,19.44,19.44,0,0,1-1.51,2,21.08,21.08,0,0,1-1.65,1.73c-.56.53-1.1,1-1.64,1.45-.34.29-.67.54-1,.78L21.62,10V3.62H19.51V20.84h2.11V12.67l6.08,5.88A20.58,20.58,0,0,0,29.41,20a5.4,5.4,0,0,0,1.43.81,4,4,0,0,0,1.36.25l.22,0a2.48,2.48,0,0,0,.27,0V18.87A.63.63,0,0,1,32.5,18.9Z"
+                                ></path>
+                            </g>
+                            <g id="brackets">
+                                <path class="cls-3" d="M.25,24.58A.25.25,0,0,1,0,24.33V.25A.25.25,0,0,1,.25,0H5.68a.25.25,0,0,1,.25.25V1.8a.25.25,0,0,1-.25.25H2.2V22.53H5.68a.25.25,0,0,1,.25.25v1.55a.25.25,0,0,1-.25.25Z"></path>
+                                <path class="cls-3" d="M31.17,24.58a.25.25,0,0,1-.25-.25V22.78a.25.25,0,0,1,.25-.25h3.47V2.05H31.17a.25.25,0,0,1-.25-.25V.25A.25.25,0,0,1,31.17,0H36.6a.25.25,0,0,1,.25.25V24.33a.25.25,0,0,1-.25.25Z"></path>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <!--!PAGE OVER-->
     </body>
     <template class="card_template">
         <div class="card">
             <img src="" alt="" class="img_answer_card" />
             <div class="card_info_container">
-                <h3 class="card_subtitle accent">Status:</h3>
-                <div class="status_container">
-                    <div class="status status_icon_answer_card"></div>
-                    <span class="answer status_answer_card"></span>
+                <div class="card_info">
+                    <h3 class="info_title accent">Status:</h3>
+                    <div class="status_container">
+                        <div class="status status_icon_answer_card"></div>
+                        <p class="answer status_answer_card"></p>
+                    </div>
+                    <h3 class="info_title accent">Name:</h3>
+                    <p class="answer name_answer_card line_clamp"></p>
+                    <h3 class="info_title accent">Origin:</h3>
+                    <p class="answer origin_answer_card line_clamp"></p>
                 </div>
-                <h3 class="card_title accent">Name:</h3>
-                <span class="answer name_answer_card"></span>
-                <h3 class="card_subtitle accent">Origin:</h3>
-                <span class="answer origin_answer_card line_clamp"></span>
                 <button type="button" class="btn info_btn" data-id=""><span class="label_btn">Info</span></button>
             </div>
         </div>

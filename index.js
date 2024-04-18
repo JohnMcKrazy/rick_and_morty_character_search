@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         infoBtn.setAttribute("data-id", data.id);
         fragment.appendChild(cloneTemplate);
     };
-    const errorMsgContainer = selector(".error_msg_container");
+    const errorMsg = selector(".error_msg");
     const fetchRick = async (api) => {
         //*console.log(api);
         try {
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     //*console.log(`Loading... ${loading}`);
                 }, 500);
             } else {
-                errorMsgContainer.style.display = "block";
+                errorMsg.style.display = "block";
                 fetchRick(apiURL + "?name=unknown rick          ");
             }
         } catch {
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputSearch = selector(".search_input");
     fetchRick(apiURL);
     const searchFunction = () => {
-        errorMsgContainer.style.display = "none ";
+        errorMsg.style.display = "none ";
         requestTarget.style.display = "flex";
         const searchValue = sanitizeInput(inputSearch.value);
         deleteChildElements(itemsContainer);
@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
     refreshBtn.addEventListener("click", () => {
         deleteChildElements(itemsContainer);
         deleteArrElements(fragment);
-        errorMsgContainer.style.display = "none ";
+        errorMsg.style.display = "none ";
         requestTarget.style.display = "flex";
         inputSearch.value = "";
         fetchRick(apiURL);
